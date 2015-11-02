@@ -62,6 +62,41 @@
                       ball.velocity.y = -ball.velocity.y;
               }
           }
+          
+          // Created a second ball object
+          var ball2 = {
+              // determines the position where the ball will apear math.random gives a random position on the x ace
+              position: {x: Math.floor((Math.random() * 780) + 20), y: 10}
+              // Will determine the size of the ball
+              , radius: 6
+              // Will determine the speed of the ball
+              , velocity: {x: 3, y: 0}
+              // Will determine if the ball will get faster or slower
+              , acceleration: {x: 0, y: 0.1}        
+              // Function that draws the ball  
+              ,drawBall2: function(){                  
+                  // Collour of the object         
+                  ctx.fillStyle = "rgb(25, 100, 100)";  
+                  // begins path
+                  ctx.beginPath();
+                  // calls the object it will draw with positions and size
+                  ctx.arc(ball2.position.x, ball2.position.y, ball2.radius, 0, 2 * Math.PI);
+                  // fills the colour 
+                  ctx.fill();       
+                  
+	
+                  // Update the y location.
+                  ball2.velocity.y += ball2.acceleration.y;
+                  ball2.position.x += ball2.velocity.x;
+                  ball2.position.y += ball2.velocity.y;
+                  // Keep the animation going while the ball has not touched the canvas bottom.
+                  // Note there's a bug here.
+                  if ((ball2.position.x >= canvas.width - ball2.radius) ||  (ball2.position.x <= ball2.radius))
+                      ball2.velocity.x = -ball2.velocity.x;    
+                  if ((ball2.position.y >= canvas.height - ball2.radius) ||  (ball2.position.y <= ball2.radius))
+                      ball2.velocity.y = -ball2.velocity.y;
+              }
+          }
         
           // Creates a new ball object 
           // This ball will be used for moving around the canvas
@@ -86,6 +121,7 @@
               // calls the function in the ball object
               ball.drawBall();
               
+              ball2.drawBall2();
               //calls the draw circle function
               drawCircle();
               // gets the animation going
