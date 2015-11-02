@@ -62,13 +62,32 @@
                       ball.velocity.y = -ball.velocity.y;
               }
           }
-      
+        
+          // Creates a new ball object 
+          // This ball will be used for moving around the canvas
+          var ballm = {
+              // spawns the ball in the middle of the canvas
+              x: canvas.width / 2
+              , y: canvas.height / 2
+              , r: 5
+          };
+            
+          // Creates a draw circle function
+          function drawCircle() {
+              ctx.fillStyle = "rgb(255, 0, 0)";
+              ctx.beginPath();
+              ctx.arc(ballm.x, ballm.y, ballm.r, 0, 2 * Math.PI);
+              ctx.fill();
+          }
           // A function to repeat every time the animation loops.
           function repeatme() {
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               // calls the function in the ball object
               ball.drawBall();
+              
+              //calls the draw circle function
+              drawCircle();
               // gets the animation going
               window.requestAnimationFrame(repeatme);
           }
