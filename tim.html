@@ -49,7 +49,8 @@
                   // fills the colour 
                   ctx.fill();       
                   
-	
+	               
+                
                   // Update the y location.
                   ball.velocity.y += ball.acceleration.y;
                   ball.position.x += ball.velocity.x;
@@ -59,8 +60,13 @@
                   if ((ball.position.x >= canvas.width - ball.radius) ||  (ball.position.x <=                 ball.radius))
                       ball.velocity.x = -ball.velocity.x;    
                   if ((ball.position.y >= canvas.height - ball.radius) ||  (ball.position.y <=              ball.radius))
-                      ball.velocity.y = -ball.velocity.y;
+                      ball.velocity.y = -ball.velocity.y;   
+                
+                  
+                  
               }
+              ,
+              
           }
           
           // Created a second ball object
@@ -98,60 +104,89 @@
               }
           }
         
+          
           // Creates a new ball object 
           // This ball will be used for moving around the canvas
           var ballm = {
               // spawns the ball in the middle of the canvas
-              x: canvas.width / 2
+              position:{ x: canvas.width / 2
               , y: canvas.height / 2
-              , r: 5
+              }, r: 50
+              
           };
             
           // Creates a draw circle function
           function drawCircle() {
               ctx.fillStyle = "rgb(255, 0, 0)";
               ctx.beginPath();
-              ctx.arc(ballm.x, ballm.y, ballm.r, 0, 2 * Math.PI);
+              ctx.arc(ballm.position.x, ballm.position.y, ballm.r, 0, 2 * Math.PI);
               ctx.fill();
+              
+              collideWithBall();
+              
           }
+                   
+          function collideWithBall() {
+			    
+             
+              var dx = (ball.position.x + ball.radius) - (ballm.position.x + ballm.r);
+              var dy = (ball.position.y + ball.radius) - (ballm.position.y + ballm.r);
+              var distance = Math.sqrt((dx * dx) + (dy * dy));
+              if (distance < ball.radius + ballm.r) {                 
+               
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);    
+                  ctx.fillStyle = "black";
+                  ctx.font = "18px Arial";
+                  ctx.fillText("Game Over ", 300, 200);
+                  shutdown();
+                  
+              } 		
+          }
+             
+          
+          
           // A function to repeat every time the animation loops.
           function repeatme() {
+              
+              collideWithBall();
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               // calls the function in the ball object
               ball.drawBall();
-              
               ball2.drawBall2();
+              
               //calls the draw circle function
               drawCircle();
+              
+              collideWithBall();
               // gets the animation going
               window.requestAnimationFrame(repeatme);  
           }
           
           // Add an event listener to the keypress event.          
           window.addEventListener("keydown", function(event) {
-              
+                   
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               
               // Right
-              if (event.keyCode == 39 && ballm.x < canvas.width - ballm.r)
-                  ballm.x += Math.min(10, canvas.width - ballm.x - ballm.r);
+              if (event.keyCode == 39 && ballm.position.x < canvas.width - ballm.r)
+                  ballm.position.x += Math.min(10, canvas.width - ballm.position.x - ballm.r);
 
               // Left
-              else if (event.keyCode == 37 && ballm.x > ballm.r)
-                  ballm.x -= 10;
+              else if (event.keyCode == 37 && ballm.position.x > ballm.r)
+                  ballm.position.x -= 10;
         
               // down
-              else if (event.keyCode == 40 && ballm.y < canvas.height - ballm.r)
-                  ballm.y += 10;
+              else if (event.keyCode == 40 && ballm.position.y < canvas.height - ballm.r)
+                  ballm.position.y += 10;
         
               // For up movement
-              else if (event.keyCode == 38 && ballm.y > ballm.r)
+              else if (event.keyCode == 38 && ballm.position.y > ballm.r)
                   // updates location by int given
-                  ballm.y -= 10;
+                  ballm.position.y -= 10;
         
               drawCircle();
-      
+                collideWithBall();
           });
    
       
