@@ -59,9 +59,8 @@
                   if ((ball.position.x >= canvas.width - ball.radius) ||  (ball.position.x <=                 ball.radius))
                       ball.velocity.x = -ball.velocity.x;    
                   if ((ball.position.y >= canvas.height - ball.radius) ||  (ball.position.y <=              ball.radius))
-                      ball.velocity.y = -ball.velocity.y;
-                  
-                  
+                      ball.velocity.y = -ball.velocity.y;   
+                
               }
           }
           
@@ -123,41 +122,23 @@
           }
                     
           function collideWithBall() {
-			
-              if (ballm.x + ball.r == ball.x + ball.radius && ballm.position.y + ball.radius == ball.position.y +ball.radius ){
-                
-                  //gameOver();
-                
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                  ctx.fillStyle = "black";
-                
-                  ctx.font = "18px Arial";
-                
-                  ctx.fillText("Game Over ", 300, 200);
-            }              
-              else{                
-                  return;
+			    
+              var dx = (ball.x + ball.radius) - (ballm.x + ballm.radius);
+    
+              var dy = (ball.y + ball.radius) - (ballm.y + ballm.radius);
+    
+              var distance = Math.sqrt(dx * dx + dy * dy);
+    
+    
+              if (distance < ball.radius + ballm.radius) {                 
               
-              }				
-			
-		
+                  shutdown();
+      
+              } 		
           }
           // A function to repeat every time the animation loops.
           function repeatme() {
-              if (ballm.x + ballm.r <= ball.x + ball.r ){
-                
-                  //gameOver();
-                
-                  ctx.clear;
-                  //Rect(0, 0, canvas.width, canvas.height);
-                
-                  ctx.fillStyle = "black";
-                
-                  ctx.font = "18px Arial";
-                
-                  ctx.fillText("Game Over ", 300, 200);
-            }
+              
               
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -166,14 +147,14 @@
               
               
               
-              ball2.drawBall2();
+              //ball2.drawBall2();
               //calls the draw circle function
               drawCircle();
               
                
               
               
-              //collideWithBall();
+              collideWithBall();
               // gets the animation going
               window.requestAnimationFrame(repeatme);  
           }
