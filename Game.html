@@ -10,17 +10,15 @@
       body {
           background-color: black;
       }
-      
+                           
+        canvas {                 
+            position: fixed;                 
+            top: 15%;                
+            left: 15%;           
+            border: 5px solid blue;                 
+            background-color: black;        
+        }
         
-        
-                canvas {
-          
-                  position: fixed;
-                  top: 15%;
-                  left: 15%;
-                  border: 5px solid blue;
-                  background-color: black;
-                    }
     </style>
 
   </head>
@@ -42,7 +40,7 @@
           // Creates object for the balls 
           var ball = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -60,8 +58,6 @@
                   // fills the colour 
                   ctx.fill();       
                   
-	               
-                
                   // Update the y location.
                   //ball.velocity.y += ball.acceleration.y;
                   ball.position.x += ball.acceleration.x;
@@ -83,7 +79,7 @@
           // Created a second ball object
           var ball2 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -117,7 +113,7 @@
         
           var ball3 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -151,7 +147,7 @@
           
           var ball4 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -185,7 +181,7 @@
           
           var ball5 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: 15}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: 15}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -238,16 +234,18 @@
               collideWithBall3();
               collideWithBall4();
               collideWithBall5();
+              
+              collideWithBall12();
+              collideWithBall21();
+              collideWithBall13();
+              collideWithBall31();
+              collideWithBall32();
+              collideWithBall23();
           }
-                
-         
-          function gameOver(){
-              ctx.clearRect(0, 0, canvas.width, canvas.height);    
-                  ctx.fillStyle = "red";
-                  ctx.font = "30px Arial";
-                  ctx.fillText("Game Over ", canvas.width / 2, canvas.height/2);
-                  shutdown();
-          }
+        
+          
+            
+          
           function collideWithBall() {
 			    
              
@@ -272,6 +270,7 @@
                   
               } 		
           }
+          
           function collideWithBall3() {
 			    
               var dx = (ball3.position.x ) - (ballm.position.x );
@@ -283,6 +282,7 @@
                   
               } 		
           }
+          
           function collideWithBall4() {
 			    
               var dx = (ball4.position.x ) - (ballm.position.x );
@@ -294,6 +294,7 @@
                   
               } 		
           }
+          
           function collideWithBall5() {
 			    
               var dx = (ball5.position.x ) - (ballm.position.x );
@@ -306,6 +307,82 @@
               } 		
           }
           
+          // Balls colliding
+          function collideWithBall12() {
+			    
+             
+              var dx = (ball.position.x ) - (ball2.position.x );
+              var dy = (ball.position.y ) - (ball2.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball2.radius) {                 
+               
+                  ball.acceleration.x = -ball.acceleration.x;   
+                  ball.acceleration.y = -ball.acceleration.y;       
+              }	
+          }
+          function collideWithBall21() {
+			    
+             
+
+              
+              var dx = (ball.position.x ) - (ball2.position.x );
+              var dy = (ball.position.y ) - (ball2.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball2.radius) {                 
+               
+                  ball2.acceleration.x = -ball2.acceleration.x;      
+                  ball2.acceleration.y = -ball2.acceleration.y;    
+                  
+              } 		
+          }
+          function collideWithBall13() {
+			    
+             
+              var dx = (ball.position.x ) - (ball3.position.x );
+              var dy = (ball.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball3.radius) {                 
+               
+                  ball.acceleration.x = -ball.acceleration.x;   
+                  ball.acceleration.y = -ball.acceleration.y;       
+              }	
+          }
+          function collideWithBall31() {
+			    
+             
+              var dx = (ball.position.x ) - (ball3.position.x );
+              var dy = (ball.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball3.radius) {                 
+               
+                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.y = -ball3.acceleration.y;       
+              }	
+          }
+          function collideWithBall23() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball3.position.x );
+              var dy = (ball2.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball3.radius) {                 
+               
+                  ball2.acceleration.x = -ball2.acceleration.x;   
+                  ball2.acceleration.y = -ball2.acceleration.y;       
+              }	
+          }
+          function collideWithBall32() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball3.position.x );
+              var dy = (ball2.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball3.radius) {                 
+               
+                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.y = -ball3.acceleration.y;       
+              }	
+          }
           
           // A function to repeat every time the animation loops.
           function repeatme() {
@@ -317,14 +394,30 @@
               ball.drawBall();
               ball2.drawBall2();
               ball3.drawBall3();
-              ball4.drawBall4();
-              ball5.drawBall5();
+              //ball4.drawBall4();
+              //ball5.drawBall5();
               //calls the draw circle function
               drawCircle();
               
               
               // gets the animation going
               window.requestAnimationFrame(repeatme);  
+          }
+          
+          function shutdown(){
+                if (event.keyCode == 13 && ballm.position.y > ballm.r){
+                
+                    location.reload(); 
+          
+                }
+          }
+          
+          function gameOver(){
+              ctx.clearRect(0, 0, canvas.width, canvas.height);    
+                  ctx.fillStyle = "red";
+                  ctx.font = "30px Arial";
+                  ctx.fillText("Game Over Press enter to restart", canvas.width / 4, canvas.height/2);
+                  shutdown();
           }
           
           // Add an event listener to the keypress event.          
