@@ -7,9 +7,20 @@
     <title>Canvas</title>
 
     <style type="text/css">
-      canvas {
-        border: 1px solid black;
+      body {
+          background-color: black;
       }
+      
+        
+        
+                canvas {
+          
+                  position: fixed;
+                  top: 15%;
+                  left: 15%;
+                  border: 5px solid blue;
+                  background-color: black;
+                    }
     </style>
 
   </head>
@@ -31,13 +42,13 @@
           // Creates object for the balls 
           var ball = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: 10}
+              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
               // Will determine the size of the ball
-              , radius: 6
+              , radius: 15
               // Will determine the speed of the ball
-              , velocity: {x: 3, y: 0}
+              //, velocity: {x: 3, y: 0}
               // Will determine if the ball will get faster or slower
-              , acceleration: {x: 0, y: 0.1}        
+              , acceleration: {x: 3, y: 2}        
               // Function that draws the ball  
               ,drawBall: function(){                  
                   // Collour of the object         
@@ -52,15 +63,15 @@
 	               
                 
                   // Update the y location.
-                  ball.velocity.y += ball.acceleration.y;
-                  ball.position.x += ball.velocity.x;
-                  ball.position.y += ball.velocity.y;
+                  //ball.velocity.y += ball.acceleration.y;
+                  ball.position.x += ball.acceleration.x;
+                  ball.position.y += ball.acceleration.y;
                   // Keep the animation going while the ball has not touched the canvas bottom.
                   // Note there's a bug here.
                   if ((ball.position.x >= canvas.width - ball.radius) ||  (ball.position.x <=                 ball.radius))
-                      ball.velocity.x = -ball.velocity.x;    
+                      ball.acceleration.x = -ball.acceleration.x;    
                   if ((ball.position.y >= canvas.height - ball.radius) ||  (ball.position.y <=              ball.radius))
-                      ball.velocity.y = -ball.velocity.y;   
+                      ball.acceleration.y = -ball.acceleration.y;   
                 
                   
                   
@@ -72,13 +83,13 @@
           // Created a second ball object
           var ball2 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 780) + 20), y: 10}
+              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
               // Will determine the size of the ball
-              , radius: 6
+              , radius: 15
               // Will determine the speed of the ball
-              , velocity: {x: 3, y: 0}
+              //, velocity: {x: 3, y: 0}
               // Will determine if the ball will get faster or slower
-              , acceleration: {x: 0, y: 0.1}        
+              , acceleration: {x: 2, y: 2.5}        
               // Function that draws the ball  
               ,drawBall2: function(){                  
                   // Collour of the object         
@@ -92,18 +103,119 @@
                   
 	
                   // Update the y location.
-                  ball2.velocity.y += ball2.acceleration.y;
-                  ball2.position.x += ball2.velocity.x;
-                  ball2.position.y += ball2.velocity.y;
+                  //ball2.velocity.y += ball2.acceleration.y;
+                  ball2.position.x += ball2.acceleration.x;
+                  ball2.position.y += ball2.acceleration.y;
                   // Keep the animation going while the ball has not touched the canvas bottom.
                   // Note there's a bug here.
                   if ((ball2.position.x >= canvas.width - ball2.radius) ||  (ball2.position.x <= ball2.radius))
-                      ball2.velocity.x = -ball2.velocity.x;    
+                      ball2.acceleration.x = -ball2.acceleration.x;    
                   if ((ball2.position.y >= canvas.height - ball2.radius) ||  (ball2.position.y <= ball2.radius))
-                      ball2.velocity.y = -ball2.velocity.y;
+                      ball2.acceleration.y = -ball2.acceleration.y;
               }
           }
         
+          var ball3 = {
+              // determines the position where the ball will apear math.random gives a random position on the x ace
+              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              // Will determine the size of the ball
+              , radius: 15
+              // Will determine the speed of the ball
+              //, velocity: {x: 3, y: 0}
+              // Will determine if the ball will get faster or slower
+              , acceleration: {x: 2.5, y: 2}        
+              // Function that draws the ball  
+              ,drawBall3: function(){                  
+                  // Collour of the object         
+                  ctx.fillStyle = "rgb(25, 100, 100)";  
+                  // begins path
+                  ctx.beginPath();
+                  // calls the object it will draw with positions and size
+                  ctx.arc(ball3.position.x, ball3.position.y, ball3.radius, 0, 2 * Math.PI);
+                  // fills the colour 
+                  ctx.fill();       
+                  
+	
+                  // Update the y location.
+                  //ball3.velocity.y += ball3.acceleration.y;
+                  ball3.position.x += ball3.acceleration.x;
+                  ball3.position.y += ball3.acceleration.y;
+                  // Keep the animation going while the ball has not touched the canvas bottom.
+                  // Note there's a bug here.
+                  if ((ball3.position.x >= canvas.width - ball3.radius) ||  (ball3.position.x <= ball3.radius))
+                      ball3.acceleration.x = -ball3.acceleration.x;    
+                  if ((ball3.position.y >= canvas.height - ball3.radius) ||  (ball3.position.y <= ball3.radius))
+                      ball3.acceleration.y = -ball3.acceleration.y;
+              }
+          }
+          
+          var ball4 = {
+              // determines the position where the ball will apear math.random gives a random position on the x ace
+              position: {x: Math.floor((Math.random() * 780) + 20), y: Math.floor((Math.random() * 580) + 20)}
+              // Will determine the size of the ball
+              , radius: 15
+              // Will determine the speed of the ball
+              //, velocity: {x: 3, y: 0}
+              // Will determine if the ball will get faster or slower
+              , acceleration: {x: 2.7, y: 2.3}        
+              // Function that draws the ball  
+              ,drawBall4: function(){                  
+                  // Collour of the object         
+                  ctx.fillStyle = "rgb(25, 100, 100)";  
+                  // begins path
+                  ctx.beginPath();
+                  // calls the object it will draw with positions and size
+                  ctx.arc(ball4.position.x, ball4.position.y, ball4.radius, 0, 2 * Math.PI);
+                  // fills the colour 
+                  ctx.fill();       
+                  
+	
+                  // Update the y location.
+                  //ball4.velocity.y += ball4.acceleration.y;
+                  ball4.position.x += ball4.acceleration.x;
+                  ball4.position.y += ball4.acceleration.y;
+                  // Keep the animation going while the ball has not touched the canvas bottom.
+                  // Note there's a bug here.
+                  if ((ball4.position.x >= canvas.width - ball4.radius) ||  (ball4.position.x <= ball4.radius))
+                      ball4.acceleration.x = -ball4.acceleration.x;    
+                  if ((ball4.position.y >= canvas.height - ball4.radius) ||  (ball4.position.y <= ball4.radius))
+                      ball4.acceleration.y = -ball4.acceleration.y;
+              }
+          }
+          
+          var ball5 = {
+              // determines the position where the ball will apear math.random gives a random position on the x ace
+              position: {x: Math.floor((Math.random() * 780) + 20), y: 15}
+              // Will determine the size of the ball
+              , radius: 15
+              // Will determine the speed of the ball
+              //, velocity: {x: 3, y: 0}
+              // Will determine if the ball will get faster or slower
+              , acceleration: {x: 2, y: 3}        
+              // Function that draws the ball  
+              ,drawBall5: function(){                  
+                  // Collour of the object         
+                  ctx.fillStyle = "rgb(25, 100, 100)";  
+                  // begins path
+                  ctx.beginPath();
+                  // calls the object it will draw with positions and size
+                  ctx.arc(ball5.position.x, ball5.position.y, ball5.radius, 0, 2 * Math.PI);
+                  // fills the colour 
+                  ctx.fill();       
+                  
+	
+                  // Update the y location.
+                  //ball5.velocity.y += ball5.acceleration.y;
+                  ball5.position.x += ball5.acceleration.x;
+                  ball5.position.y += ball5.acceleration.y;
+                  // Keep the animation going while the ball has not touched the canvas bottom.
+                  // Note there's a bug here.
+                  if ((ball5.position.x >= canvas.width - ball5.radius) ||  (ball5.position.x <= ball5.radius))
+                      ball5.acceleration.x = -ball5.acceleration.x;    
+                  if ((ball5.position.y >= canvas.height - ball5.radius) ||  (ball5.position.y <= ball5.radius))
+                      ball5.acceleration.y = -ball5.acceleration.y;
+              }
+          }
           
           // Creates a new ball object 
           // This ball will be used for moving around the canvas
@@ -111,54 +223,106 @@
               // spawns the ball in the middle of the canvas
               position:{ x: canvas.width / 2
               , y: canvas.height / 2
-              }, r: 50
+              }, r: 15
               
           };
             
           // Creates a draw circle function
           function drawCircle() {
-              ctx.fillStyle = "rgb(255, 0, 0)";
+              ctx.fillStyle = "rgb(255, 255, 0)";
               ctx.beginPath();
               ctx.arc(ballm.position.x, ballm.position.y, ballm.r, 0, 2 * Math.PI);
               ctx.fill();
-              
               collideWithBall();
-              
+              collideWithBall2();
+              collideWithBall3();
+              collideWithBall4();
+              collideWithBall5();
           }
-                   
+                
+         
+          function gameOver(){
+              ctx.clearRect(0, 0, canvas.width, canvas.height);    
+                  ctx.fillStyle = "red";
+                  ctx.font = "30px Arial";
+                  ctx.fillText("Game Over ", canvas.width / 2, canvas.height/2);
+                  shutdown();
+          }
           function collideWithBall() {
 			    
              
-              var dx = (ball.position.x + ball.radius) - (ballm.position.x + ballm.r);
-              var dy = (ball.position.y + ball.radius) - (ballm.position.y + ballm.r);
-              var distance = Math.sqrt((dx * dx) + (dy * dy));
+              var dx = (ball.position.x ) - (ballm.position.x );
+              var dy = (ball.position.y ) - (ballm.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball.radius + ballm.r) {                 
                
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);    
-                  ctx.fillStyle = "black";
-                  ctx.font = "18px Arial";
-                  ctx.fillText("Game Over ", 300, 200);
-                  shutdown();
+                  gameOver();
                   
               } 		
           }
              
+          function collideWithBall2() {
+			    
+              var dx = (ball2.position.x ) - (ballm.position.x );
+              var dy = (ball2.position.y ) - (ballm.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ballm.r) {                 
+               
+                  gameOver();
+                  
+              } 		
+          }
+          function collideWithBall3() {
+			    
+              var dx = (ball3.position.x ) - (ballm.position.x );
+              var dy = (ball3.position.y ) - (ballm.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball3.radius + ballm.r) {                 
+               
+                 gameOver();
+                  
+              } 		
+          }
+          function collideWithBall4() {
+			    
+              var dx = (ball4.position.x ) - (ballm.position.x );
+              var dy = (ball4.position.y ) - (ballm.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball4.radius + ballm.r) {                 
+               
+                  gameOverr();
+                  
+              } 		
+          }
+          function collideWithBall5() {
+			    
+              var dx = (ball5.position.x ) - (ballm.position.x );
+              var dy = (ball5.position.y ) - (ballm.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball5.radius + ballm.r) {                 
+               
+                  gameOver();
+                  
+              } 		
+          }
           
           
           // A function to repeat every time the animation loops.
           function repeatme() {
               
-              collideWithBall();
+              
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               // calls the function in the ball object
               ball.drawBall();
               ball2.drawBall2();
-              
+              ball3.drawBall3();
+              ball4.drawBall4();
+              ball5.drawBall5();
               //calls the draw circle function
               drawCircle();
               
-              collideWithBall();
+              
               // gets the animation going
               window.requestAnimationFrame(repeatme);  
           }
@@ -186,7 +350,7 @@
                   ballm.position.y -= 10;
         
               drawCircle();
-                collideWithBall();
+                
           });
    
       
