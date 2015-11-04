@@ -236,11 +236,30 @@
               collideWithBall5();
               
               collideWithBall12();
-              collideWithBall21();
               collideWithBall13();
+              collideWithBall14();
+              collideWithBall15();
+              
+              collideWithBall21();
+              collideWithBall23();
+              collideWithBall24();
+              collideWithBall25();
+              
               collideWithBall31();
               collideWithBall32();
-              collideWithBall23();
+              collideWithBall34();
+              collideWithBall35();
+              
+              collideWithBall41();
+              collideWithBall42();
+              collideWithBall43();
+              collideWithBall45();
+              
+              collideWithBall51();
+              collideWithBall52();
+              collideWithBall53();
+              collideWithBall54();
+              
           }
         
           
@@ -309,31 +328,16 @@
           
           // Balls colliding
           function collideWithBall12() {
-			    
-             
+			             
               var dx = (ball.position.x ) - (ball2.position.x );
               var dy = (ball.position.y ) - (ball2.position.y );
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball.radius + ball2.radius) {                 
-               
-                  ball.acceleration.x = -ball.acceleration.x;   
-                  ball.acceleration.y = -ball.acceleration.y;       
-              }	
-          }
-          function collideWithBall21() {
-			    
-             
-
-              
-              var dx = (ball.position.x ) - (ball2.position.x );
-              var dy = (ball.position.y ) - (ball2.position.y );
-              var distance = Math.sqrt(dx * dx + dy * dy);
-              if (distance < ball.radius + ball2.radius) {                 
-               
-                  ball2.acceleration.x = -ball2.acceleration.x;      
-                  ball2.acceleration.y = -ball2.acceleration.y;    
+                          
+                      ball.acceleration.x = -ball.acceleration.x;
                   
-              } 		
+                      ball.acceleration.y = -ball.acceleration.y;       
+              }	
           }
           function collideWithBall13() {
 			    
@@ -343,21 +347,47 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball.radius + ball3.radius) {                 
                
-                  ball.acceleration.x = -ball.acceleration.x;   
+                  ball.acceleration.x = -ball.acceleration.x;  
+                  
                   ball.acceleration.y = -ball.acceleration.y;       
               }	
           }
-          function collideWithBall31() {
-			    
-             
-              var dx = (ball.position.x ) - (ball3.position.x );
-              var dy = (ball.position.y ) - (ball3.position.y );
+          function collideWithBall14() {
+			             
+              var dx = (ball.position.x ) - (ball4.position.x );
+              var dy = (ball.position.y ) - (ball4.position.y );
               var distance = Math.sqrt(dx * dx + dy * dy);
-              if (distance < ball.radius + ball3.radius) {                 
-               
-                  ball3.acceleration.x = -ball3.acceleration.x;   
-                  ball3.acceleration.y = -ball3.acceleration.y;       
+              if (distance < ball.radius + ball4.radius) {                 
+                          
+                      ball.acceleration.x = -ball.acceleration.x;
+                  
+                      ball.acceleration.y = -ball.acceleration.y;       
               }	
+          }
+          function collideWithBall15() {
+			             
+              var dx = (ball.position.x ) - (ball5.position.x );
+              var dy = (ball.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball5.radius) {                 
+                          
+                      ball.acceleration.x = -ball.acceleration.x;
+                  
+                      ball.acceleration.y = -ball.acceleration.y;       
+              }	
+          }
+          
+          function collideWithBall21() {
+  
+              var dx = (ball.position.x ) - (ball2.position.x );
+              var dy = (ball.position.y ) - (ball2.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball2.radius) {                 
+                   
+                      ball2.acceleration.x = -ball2.acceleration.x;      
+                        
+                      ball2.acceleration.y = -ball2.acceleration.y;          
+              } 		
           }
           function collideWithBall23() {
 			    
@@ -369,6 +399,43 @@
                
                   ball2.acceleration.x = -ball2.acceleration.x;   
                   ball2.acceleration.y = -ball2.acceleration.y;       
+              }	
+          }
+          function collideWithBall24() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball4.position.x );
+              var dy = (ball2.position.y ) - (ball4.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball4.radius) {                 
+               
+                  ball2.acceleration.x = -ball2.acceleration.x;   
+                  ball2.acceleration.y = -ball2.acceleration.y;       
+              }	
+          }
+          function collideWithBall25() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball5.position.x );
+              var dy = (ball2.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball5.radius) {                 
+               
+                  ball2.acceleration.x = -ball2.acceleration.x;   
+                  ball2.acceleration.y = -ball2.acceleration.y;       
+              }	
+          }
+          
+          function collideWithBall31() {
+			    
+             
+              var dx = (ball.position.x ) - (ball3.position.x );
+              var dy = (ball.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball3.radius) {                 
+               
+                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.y = -ball3.acceleration.y;       
               }	
           }
           function collideWithBall32() {
@@ -383,6 +450,128 @@
                   ball3.acceleration.y = -ball3.acceleration.y;       
               }	
           }
+          function collideWithBall34() {
+			    
+             
+              var dx = (ball4.position.x ) - (ball3.position.x );
+              var dy = (ball4.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball4.radius + ball3.radius) {                 
+               
+                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.y = -ball3.acceleration.y;       
+              }	
+          }
+          function collideWithBall35() {
+			    
+             
+              var dx = (ball5.position.x ) - (ball3.position.x );
+              var dy = (ball5.position.y ) - (ball3.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball5.radius + ball3.radius) {                 
+               
+                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.y = -ball3.acceleration.y;       
+              }	
+          }
+          
+          function collideWithBall41() {
+  
+              var dx = (ball.position.x ) - (ball4.position.x );
+              var dy = (ball.position.y ) - (ball4.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball4.radius) {                 
+                   
+                      ball4.acceleration.x = -ball4.acceleration.x;      
+                        
+                      ball4.acceleration.y = -ball4.acceleration.y;          
+              } 		
+          }
+          function collideWithBall42() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball4.position.x );
+              var dy = (ball2.position.y ) - (ball4.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball4.radius) {                 
+               
+                  ball4.acceleration.x = -ball4.acceleration.x;   
+                  ball4.acceleration.y = -ball4.acceleration.y;       
+              }	
+          }
+          function collideWithBall43() {
+			    
+             
+              var dx = (ball3.position.x ) - (ball4.position.x );
+              var dy = (ball3.position.y ) - (ball4.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball3.radius + ball4.radius) {                 
+               
+                  ball4.acceleration.x = -ball4.acceleration.x;   
+                  ball4.acceleration.y = -ball4.acceleration.y;       
+              }	
+          }
+          function collideWithBall45() {
+			    
+             
+              var dx = (ball5.position.x ) - (ball4.position.x );
+              var dy = (ball5.position.y ) - (ball4.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball5.radius + ball4.radius) {                 
+               
+                  ball4.acceleration.x = -ball4.acceleration.x;   
+                  ball4.acceleration.y = -ball4.acceleration.y;       
+              }	
+          }
+          
+          function collideWithBall51() {
+  
+              var dx = (ball.position.x ) - (ball5.position.x );
+              var dy = (ball.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball.radius + ball5.radius) {                 
+                   
+                      ball5.acceleration.x = -ball5.acceleration.x;      
+                        
+                      ball5.acceleration.y = -ball5.acceleration.y;          
+              } 		
+          }
+          function collideWithBall52() {
+			    
+             
+              var dx = (ball2.position.x ) - (ball5.position.x );
+              var dy = (ball2.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball2.radius + ball5.radius) {                 
+               
+                  ball5.acceleration.x = -ball5.acceleration.x;   
+                  ball5.acceleration.y = -ball5.acceleration.y;       
+              }	
+          }
+          function collideWithBall53() {
+			    
+             
+              var dx = (ball3.position.x ) - (ball5.position.x );
+              var dy = (ball3.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball3.radius + ball5.radius) {                 
+               
+                  ball5.acceleration.x = -ball5.acceleration.x;   
+                  ball5.acceleration.y = -ball5.acceleration.y;       
+              }	
+          }
+          function collideWithBall54() {
+			    
+             
+              var dx = (ball4.position.x ) - (ball5.position.x );
+              var dy = (ball4.position.y ) - (ball5.position.y );
+              var distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < ball4.radius + ball5.radius) {                 
+               
+                  ball5.acceleration.x = -ball5.acceleration.x;   
+                  ball5.acceleration.y = -ball5.acceleration.y;       
+              }	
+          }
           
           // A function to repeat every time the animation loops.
           function repeatme() {
@@ -394,8 +583,8 @@
               ball.drawBall();
               ball2.drawBall2();
               ball3.drawBall3();
-              //ball4.drawBall4();
-              //ball5.drawBall5();
+              ball4.drawBall4();
+              ball5.drawBall5();
               //calls the draw circle function
               drawCircle();
               
@@ -406,9 +595,7 @@
           
           function shutdown(){
                 if (event.keyCode == 13 && ballm.position.y > ballm.r){
-                
                     location.reload(); 
-          
                 }
           }
           
