@@ -309,7 +309,7 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball4.radius + ballm.r) {                 
                
-                  gameOverr();
+                  gameOver();
                   
               } 		
           }
@@ -334,9 +334,9 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball.radius + ball2.radius) {                 
                           
-                      ball.acceleration.x = -ball.acceleration.x;
+                      ball.acceleration.x = +ball.acceleration.x;
                   
-                      ball.acceleration.y = -ball.acceleration.y;       
+                      ball.acceleration.y = +ball.acceleration.y;       
               }	
           }
           function collideWithBall13() {
@@ -349,7 +349,7 @@
                
                   ball.acceleration.x = -ball.acceleration.x;  
                   
-                  ball.acceleration.y = -ball.acceleration.y;       
+                  ball.acceleration.y = +ball.acceleration.y;       
               }	
           }
           function collideWithBall14() {
@@ -371,7 +371,7 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball.radius + ball5.radius) {                 
                           
-                      ball.acceleration.x = -ball.acceleration.x;
+                      ball.acceleration.x = +ball.acceleration.x;
                   
                       ball.acceleration.y = -ball.acceleration.y;       
               }	
@@ -397,8 +397,8 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball2.radius + ball3.radius) {                 
                
-                  ball2.acceleration.x = -ball2.acceleration.x;   
-                  ball2.acceleration.y = -ball2.acceleration.y;       
+                  ball2.acceleration.x = +ball2.acceleration.x;   
+                  ball2.acceleration.y = +ball2.acceleration.y;       
               }	
           }
           function collideWithBall24() {
@@ -410,7 +410,7 @@
               if (distance < ball2.radius + ball4.radius) {                 
                
                   ball2.acceleration.x = -ball2.acceleration.x;   
-                  ball2.acceleration.y = -ball2.acceleration.y;       
+                  ball2.acceleration.y = +ball2.acceleration.y;       
               }	
           }
           function collideWithBall25() {
@@ -446,7 +446,7 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball2.radius + ball3.radius) {                 
                
-                  ball3.acceleration.x = -ball3.acceleration.x;   
+                  ball3.acceleration.x = +ball3.acceleration.x;   
                   ball3.acceleration.y = -ball3.acceleration.y;       
               }	
           }
@@ -470,8 +470,8 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball5.radius + ball3.radius) {                 
                
-                  ball3.acceleration.x = -ball3.acceleration.x;   
-                  ball3.acceleration.y = -ball3.acceleration.y;       
+                  ball3.acceleration.x = +ball3.acceleration.x;   
+                  ball3.acceleration.y = +ball3.acceleration.y;       
               }	
           }
           
@@ -495,7 +495,7 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball2.radius + ball4.radius) {                 
                
-                  ball4.acceleration.x = -ball4.acceleration.x;   
+                  ball4.acceleration.x = +ball4.acceleration.x;   
                   ball4.acceleration.y = -ball4.acceleration.y;       
               }	
           }
@@ -519,8 +519,8 @@
               var distance = Math.sqrt(dx * dx + dy * dy);
               if (distance < ball5.radius + ball4.radius) {                 
                
-                  ball4.acceleration.x = -ball4.acceleration.x;   
-                  ball4.acceleration.y = -ball4.acceleration.y;       
+                  ball4.acceleration.x = +ball4.acceleration.x;   
+                  ball4.acceleration.y = +ball4.acceleration.y;       
               }	
           }
           
@@ -569,7 +569,7 @@
               if (distance < ball4.radius + ball5.radius) {                 
                
                   ball5.acceleration.x = -ball5.acceleration.x;   
-                  ball5.acceleration.y = -ball5.acceleration.y;       
+                  ball5.acceleration.y = +ball5.acceleration.y;       
               }	
           }
           
@@ -605,11 +605,23 @@
                   ctx.font = "30px Arial";
                   ctx.fillText("Game Over Press enter to restart", canvas.width / 4, canvas.height/2);
                   shutdown();
+              
+                   
+              
+        
+                 
+        
+              
+                
+          
           }
           
           // Add an event listener to the keypress event.          
           window.addEventListener("keydown", function(event) {
-                   
+                 
+              
+              
+              
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               
               // Right
