@@ -607,6 +607,10 @@
               
               ctx.font = "20px Georgia";
               ctx.fillText( minutes+":"+seconds, 560, 390);
+              if(seconds<5){
+                  startMessage();
+              }
+              
           }
           
           function startBallTwo(){
@@ -634,6 +638,10 @@
               }
           }
           
+          function startMessage(){
+              ctx.font = "20px Green";
+              ctx.fillText( "Dodge the ball(s) if you can!", canvas.width / 2.9 , 20);
+          }
           // A function to repeat every time the animation loops.
           function repeatme() {
               
