@@ -25,7 +25,7 @@
 
   <body>
         
-      <canvas id="tim's-game" width="800px" height="600px"></canvas>
+      <canvas id="tim's-game" width="600px" height="400px"></canvas>
       
       <script type="text/javascript">
           // up top. creates the canvas with given dimensions
@@ -44,7 +44,7 @@
           // Creates object for the balls 
           var ball = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
+              position: {x: 20, y: 20}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -74,7 +74,7 @@
                       ball.acceleration.y = -ball.acceleration.y;   
                 
                   
-                  
+                  //displayt();
               }
               
           }
@@ -82,7 +82,7 @@
           // Created a second ball object
           var ball2 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
+              position: {x: 580, y: 380}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -119,7 +119,7 @@
         
           var ball3 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
+              position: {x: 20 , y: 380}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -158,7 +158,7 @@
           
           var ball4 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
+              position: {x: 580, y: 20}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -200,7 +200,7 @@
           
           var ball5 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
+              position: {x: canvas.width / 2 , y: canvas.height/2}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -606,7 +606,7 @@
               //}
               
               ctx.font = "20px Georgia";
-              ctx.fillText( minutes+":"+seconds, 760, 590);
+              ctx.fillText( minutes+":"+seconds, 560, 390);
           }
           
           function startBallTwo(){
@@ -637,8 +637,6 @@
           // A function to repeat every time the animation loops.
           function repeatme() {
               
-              
-              
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               
@@ -649,7 +647,7 @@
               
               // calls the function in the ball object
               ball.drawBall();
-              //ball2.drawBall2();
+             
               startBallTwo();
               startBall3();
               startBall4();
@@ -665,6 +663,7 @@
           function shutdown(){
                 
                 if (event.keyCode == 13 && ballm.position.y > ballm.r){
+                    i=0;
                     location.reload(); 
                 }
           }
@@ -691,20 +690,20 @@
               
               // Right
               if (event.keyCode == 39 && ballm.position.x < canvas.width - ballm.r)
-                  ballm.position.x += Math.min(10, canvas.width - ballm.position.x - ballm.r);
+                  ballm.position.x += Math.min(15, canvas.width - ballm.position.x - ballm.r);
 
               // Left
               else if (event.keyCode == 37 && ballm.position.x > ballm.r)
-                  ballm.position.x -= 10;
+                  ballm.position.x -= 15;
         
               // down
               else if (event.keyCode == 40 && ballm.position.y < canvas.height - ballm.r)
-                  ballm.position.y += 10;
+                  ballm.position.y += 15;
         
               // For up movement
               else if (event.keyCode == 38 && ballm.position.y > ballm.r)
                   // updates location by int given
-                  ballm.position.y -= 10;
+                  ballm.position.y -= 15;
         
               drawCircle();
                 
