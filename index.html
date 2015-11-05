@@ -31,7 +31,9 @@
           // up top. creates the canvas with given dimensions
           // declares script type
           
-      
+          var startTime;
+          var endTime;
+          var i = 0;
           // Gets a handle to the element with id canvasOne.      
           var canvas = document.getElementById("tim's-game");      
           // Get a 2D context for the canvas.     
@@ -72,7 +74,6 @@
                   
                   
               }
-              ,
               
           }
           
@@ -181,7 +182,7 @@
           
           var ball5 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
-              position: {x: Math.floor((Math.random() * 775) + 25), y: 15}
+              position: {x: Math.floor((Math.random() * 775) + 25), y: Math.floor((Math.random() * 555) + 55)}
               // Will determine the size of the ball
               , radius: 15
               // Will determine the speed of the ball
@@ -260,6 +261,8 @@
               collideWithBall53();
               collideWithBall54();
               
+              ctx.font = "20px Georgia";
+              ctx.fillText(displayt(), 10, 50);
           }
         
           
@@ -575,8 +578,10 @@
           
           // A function to repeat every time the animation loops.
           function repeatme() {
-              
-              
+              if(i==0){
+              startTime = new Date();
+                  i++;
+              }
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               // calls the function in the ball object
@@ -587,6 +592,7 @@
               ball5.drawBall5();
               //calls the draw circle function
               drawCircle();
+              endTime = new Date();
               
               
               // gets the animation going
@@ -594,26 +600,55 @@
           }
           
           function shutdown(){
+                
                 if (event.keyCode == 13 && ballm.position.y > ballm.r){
                     location.reload(); 
                 }
           }
           
-          function gameOver(){
-              ctx.clearRect(0, 0, canvas.width, canvas.height);    
-                  ctx.fillStyle = "red";
-                  ctx.font = "30px Arial";
-                  ctx.fillText("Game Over Press enter to restart", canvas.width / 4, canvas.height/2);
-                  shutdown();
-              
-                   
-              
-        
-                 
-        
-              
-                
           
+          function displayt() {
+    
+              // later record end time
+               endTime = new Date();
+
+              // time difference in ms
+              var timeDiff = endTime - startTime;
+
+              // strip the miliseconds
+              timeDiff /= 1000;
+
+              // get seconds
+              var seconds = Math.round(timeDiff % 60);
+
+              // remove seconds from the date
+              timeDiff = Math.floor(timeDiff / 60);
+
+              // get minutes
+              var minutes = Math.round(timeDiff % 60);
+
+              // remove minutes from the date
+              timeDiff = Math.floor(timeDiff / 60);
+
+              // get hours
+              var hours = Math.round(timeDiff % 24);
+
+              // remove hours from the date
+              timeDiff = Math.floor(timeDiff / 24);
+
+              // the rest of timeDiff is number of days
+              var days = timeDiff;
+
+              return seconds;
+          }
+          
+          function gameOver(){
+              ctx.clearRect(0, 0, canvas.width, canvas.height);      
+              ctx.fillStyle = "red";  
+              ctx.font = "30px Arial";   
+              ctx.fillText("Game Over Press enter to restart", canvas.width / 4, canvas.height/2);   
+              shutdown();
+   
           }
           
           // Add an event listener to the keypress event.          
@@ -643,9 +678,13 @@
         
               drawCircle();
                 
+              
+              
+              
+              
           });
    
-      
+            
           // Get the animation going.
       
           window.requestAnimationFrame(repeatme);
