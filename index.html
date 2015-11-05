@@ -98,8 +98,11 @@
                   // calls the object it will draw with positions and size
                   ctx.arc(ball2.position.x, ball2.position.y, ball2.radius, 0, 2 * Math.PI);
                   // fills the colour 
-                  ctx.fill();       
+                  ctx.fill();   
                   
+                  collideWithBall2();              
+                  collideWithBall21();              
+                  collideWithBall12();
 	
                   // Update the y location.
                   //ball2.velocity.y += ball2.acceleration.y;
@@ -134,6 +137,11 @@
                   // fills the colour 
                   ctx.fill();       
                   
+                  collideWithBall13();              
+                  collideWithBall23();              
+                  collideWithBall31();              
+                  collideWithBall32();              
+                  collideWithBall3();
 	
                   // Update the y location.
                   //ball3.velocity.y += ball3.acceleration.y;
@@ -168,7 +176,15 @@
                   // fills the colour 
                   ctx.fill();       
                   
-	
+	           
+                  collideWithBall14();
+                  collideWithBall24();              
+                  collideWithBall34();                                     
+                  collideWithBall41();        
+                  collideWithBall42();           
+                  collideWithBall43();
+                  collideWithBall4();
+                  
                   // Update the y location.
                   //ball4.velocity.y += ball4.acceleration.y;
                   ball4.position.x += ball4.acceleration.x;
@@ -202,7 +218,17 @@
                   // fills the colour 
                   ctx.fill();       
                   
-	
+	              collideWithBall15();              
+                  collideWithBall35();
+                  collideWithBall45();              
+                  collideWithBall25(); 
+                  
+                  collideWithBall51();              
+                  collideWithBall52();              
+                  collideWithBall53();              
+                  collideWithBall54();
+                  collideWithBall5();
+                  
                   // Update the y location.
                   //ball5.velocity.y += ball5.acceleration.y;
                   ball5.position.x += ball5.acceleration.x;
@@ -213,6 +239,8 @@
                       ball5.acceleration.x = -ball5.acceleration.x;    
                   if ((ball5.position.y >= canvas.height - ball5.radius) ||  (ball5.position.y <= ball5.radius))
                       ball5.acceleration.y = -ball5.acceleration.y;
+                  
+                  
               }
           }
           
@@ -233,38 +261,8 @@
               ctx.arc(ballm.position.x, ballm.position.y, ballm.r, 0, 2 * Math.PI);
               ctx.fill();
               collideWithBall();
-              collideWithBall2();
-              collideWithBall3();
-              collideWithBall4();
-              collideWithBall5();
               
-              collideWithBall12();
-              collideWithBall13();
-              collideWithBall14();
-              collideWithBall15();
-              
-              collideWithBall21();
-              collideWithBall23();
-              collideWithBall24();
-              collideWithBall25();
-              
-              collideWithBall31();
-              collideWithBall32();
-              collideWithBall34();
-              collideWithBall35();
-              
-              collideWithBall41();
-              collideWithBall42();
-              collideWithBall43();
-              collideWithBall45();
-              
-              collideWithBall51();
-              collideWithBall52();
-              collideWithBall53();
-              collideWithBall54();
-              
-              ctx.font = "20px Georgia";
-              ctx.fillText( minutes+":"+seconds, 760, 590);
+              displayt();   
           }       
           
           function collideWithBall() {
@@ -575,36 +573,12 @@
               }	
           }
           
-          // A function to repeat every time the animation loops.
-          function repeatme() {
+          function checkStart(){
               if(i==0){
               startTime = new Date();
                   i++;
               }
-              // clears  the screan/canvas i.e. where the ball was previously does not show up.
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
-              // calls the function in the ball object
-              //ball.drawBall();
-              //ball2.drawBall2();
-              //ball3.drawBall3();
-              //ball4.drawBall4();
-              //ball5.drawBall5();
-              //calls the draw circle function
-              drawCircle();
-              endTime = new Date();
-              displayt();
-              
-              // gets the animation going
-              window.requestAnimationFrame(repeatme);  
           }
-          
-          function shutdown(){
-                
-                if (event.keyCode == 13 && ballm.position.y > ballm.r){
-                    location.reload(); 
-                }
-          }
-          
           
           function displayt() {
     
@@ -626,7 +600,77 @@
 
               // get minutes
               minutes = Math.round(timeDiff % 60);
+              
+              //while(seconds>15){
+                  
+              //}
+              
+              ctx.font = "20px Georgia";
+              ctx.fillText( minutes+":"+seconds, 760, 590);
           }
+          
+          function startBallTwo(){
+          
+              if( seconds >= 15 ||  minutes > 0){
+                  ball2.drawBall2();
+              }
+          }
+          function startBall3(){
+          
+              if( seconds >= 30 ||  minutes > 0){
+                  ball3.drawBall3();
+              }
+          }
+          function startBall4(){
+          
+              if( seconds >= 45 ||  minutes > 0){
+                  ball4.drawBall4();
+              }
+          }
+          function startBall5(){
+          
+              if( minutes > 0){
+                  ball5.drawBall5();
+              }
+          }
+          
+          // A function to repeat every time the animation loops.
+          function repeatme() {
+              
+              
+              
+              // clears  the screan/canvas i.e. where the ball was previously does not show up.
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              
+              checkStart();
+              
+              //calls the draw circle function
+              drawCircle();
+              
+              // calls the function in the ball object
+              ball.drawBall();
+              //ball2.drawBall2();
+              startBallTwo();
+              startBall3();
+              startBall4();
+              startBall5();
+              
+              endTime = new Date();
+              
+              
+              // gets the animation going
+              window.requestAnimationFrame(repeatme);  
+          }
+          
+          function shutdown(){
+                
+                if (event.keyCode == 13 && ballm.position.y > ballm.r){
+                    location.reload(); 
+                }
+          }
+          
+          
+          
           
           function gameOver(){
               ctx.clearRect(0, 0, canvas.width, canvas.height);      
