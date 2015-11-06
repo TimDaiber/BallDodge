@@ -29,6 +29,7 @@ Using arrays would also clean up some collision functions.
 ball array).
 
 ###Bugs
+Known Bugs:
 * Balls get stuck to canvas at the start of the game.
     (Fixed)
 * Balls getting stuck to each other at the start of the game.
