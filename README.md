@@ -39,11 +39,12 @@ http://jsfiddle.net/gQ3hD/2/
 http://stackoverflow.com/questions/33510442/collision-detection-between-balls-javascript
 * Ball array
 http://jsfiddle.net/hustlerinc/7Lmmx/
-*Colour
+* Colour
 http://www.rapidtables.com/web/color/Yellow_Color.htm
 * Key codes
 http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 * Elsapsed time counter
 http://jsfiddle.net/cckSj/5/
+
 And lab resources.
 
