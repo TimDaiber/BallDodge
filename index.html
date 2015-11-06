@@ -675,6 +675,7 @@
           
           // Creates a function that will hold a message
           function startMessage(){
+              ctx.font = "20px Green";
               ctx.fillText( "Dodge the ball(s) if you can!", canvas.width / 2.9 , 20);
           }
           
@@ -727,7 +728,8 @@
               ctx.fillStyle = "red";  
               ctx.font = "20px Arial";   
               ctx.fillText('"Game Over"  ', canvas.width / 2.55, canvas.height/2 );   
-              ctx.fillText('  Press enter to restart', canvas.width / 3.25, canvas.height/2 + 20);   
+              ctx.fillText('  Press enter to restart', canvas.width / 3.25, canvas.height/2 + 20);  
+              ctx.fillText("Time survived: "+minutes+":"+seconds, canvas.width / 3.25+30, canvas.height/2 + 40);
               //calls shutdown function
               shutdown();
    
