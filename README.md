@@ -31,19 +31,19 @@ ball array).
 ###Bugs
 
 ###Resources
-// Collision
+* Collision
 https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-// Collision
+* Collision
 http://jsfiddle.net/gQ3hD/2/
-// Naming error
+* Naming error
 http://stackoverflow.com/questions/33510442/collision-detection-between-balls-javascript
-// Ball array
+* Ball array
 http://jsfiddle.net/hustlerinc/7Lmmx/
-//Colour
+*Colour
 http://www.rapidtables.com/web/color/Yellow_Color.htm
-// Key codes
+* Key codes
 http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
-// Elsapsed time counter
+* Elsapsed time counter
 http://jsfiddle.net/cckSj/5/
 And lab resources.
 
