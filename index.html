@@ -37,6 +37,7 @@
           var seconds;
           var minutes;
           var i = 0;
+          var j=0;
           // Gets a handle to the element with id canvasOne.      
           var canvas = document.getElementById("tim's-game");      
           // Get a 2D context for the canvas.     
@@ -715,7 +716,8 @@
                     // resets global variable to 0
                     i=0;
                     // reloads the animation page
-                    location.reload(); 
+                    location.reload();
+                    j=0;
                 }
           }
           
@@ -724,6 +726,7 @@
           // Function that Displays a messgae to the user that the game is over
           // and gives user instructions on how to continue.
           function gameOver(){
+              j=1;
               ctx.clearRect(0, 0, canvas.width, canvas.height);      
               ctx.fillStyle = "red";  
               ctx.font = "20px Arial";   
@@ -732,37 +735,50 @@
               ctx.fillText("Time survived: "+minutes+":"+seconds, canvas.width / 3.25+30, canvas.height/2 + 40);
               //calls shutdown function
               shutdown();
+              
    
           }
           
           // Add an event listener to the keypress event.          
           window.addEventListener("keydown", function(event) {
-              // clear the canvas
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              // Makes arrow keys unpressable when in Game over mode. 
+              if(j==0){              
+                  // clear the canvas
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
               
-              // Right
-              if (event.keyCode == 39 && ballm.position.x < canvas.width - ballm.r)
-                  // updates location by int given
-                  ballm.position.x += Math.min(15, canvas.width - ballm.position.x - ballm.r);
+                  // Right
+                  if (event.keyCode == 39 && ballm.position.x < canvas.width - ballm.r)
+                      // updates location by int given
+                      ballm.position.x += Math.min(15, canvas.width - ballm.position.x - ballm.r);
 
-              // Left
-              else if (event.keyCode == 37 && ballm.position.x > ballm.r)
-                  // updates location by int given
-                  ballm.position.x -= 15;
-        
-              // down
-              else if (event.keyCode == 40 && ballm.position.y < canvas.height - ballm.r)
-                  // updates location by int given
-                  ballm.position.y += 15;
-        
-              // For up movement
-              else if (event.keyCode == 38 && ballm.position.y > ballm.r)
-                  // updates location by int given
-                  ballm.position.y -= 15;
-        
-              // calls draw circle function
-              drawCircle();
-
+                  // Left            
+                  else if (event.keyCode == 37 && ballm.position.x > ballm.r)
+                  
+                      // updates location by int given
+                      ballm.position.x -= 15;
+              
+                  // down
+                  else if (event.keyCode == 40 && ballm.position.y < canvas.height - ballm.r)
+                  
+                      // updates location by int given
+                      ballm.position.y += 15;       
+              
+                  // For up movement
+                  else if (event.keyCode == 38 && ballm.position.y > ballm.r)
+                      // updates location by int given
+                      ballm.position.y -= 15;
+                  
+                  // calls draw circle function
+                  drawCircle();
+              }
+              
+              else if (event.keyCode == 13 ){
+                    // resets global variable to 0
+                    i=0;
+                    // reloads the animation page
+                    location.reload();
+                    j=0;
+                }
               
           });
    
