@@ -12,13 +12,23 @@ Ever arrow key moves into the direction it is supposed to.
 
 ## Features
 Balls will spawn at certain times at certain positions of the canvas.
-
-None player ball collision is made done in a way that the player can not 
-prepare for easily.
-
+None player ball collision is made done in a way that the player can not prepare for easily.
 Timer as score system.
-
 At certain times radius's of balls change.
 
 
 ## How to make the game better
+Certain features could be added like: 
+Changing the acceleration of the balls at a certain time (Speed)
+Changing the color of the balls at certain time
+Making a ball invisible for a certain time (0.5 seconds) 
+
+The code could be cleaned up by using an array of ball objects.
+This would also enable spawning an unlimited number of balls.
+Using arrays would also clean up some collision functions. 
+(I mean making one collision function that would work with all the balls in the 
+ball array).
+
+###Bugs
+
+
