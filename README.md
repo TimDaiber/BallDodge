@@ -41,7 +41,6 @@ Known Bugs:
 * ~~Balls getting stuck to each other at the start of the game.~~
     (Fixed)
 * ~~Still able to move character after game over.~~(Fixed)
-
     (Only happens if you die while a arrow key is pressed.)
 * Balls getting stuck in canvas when resize methods are called.
 * Balls getting stuck in each other when resize methods are called.
