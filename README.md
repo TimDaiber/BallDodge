@@ -45,6 +45,10 @@ Known Bugs:
 * Balls getting stuck in canvas when resize methods are called.
 * Balls getting stuck in each other when resize methods are called.
 
+How to fix the last 2 bugs is create functions that move the ball on either x or y axis by 20 pixels 
+on the x or y axis. This function would activate if a ball does not move position from either the x or y axis 
+for 5 seconds.
+
 ###Resources
 * Collision
 https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
