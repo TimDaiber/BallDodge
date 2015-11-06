@@ -30,9 +30,9 @@ ball array).
 
 ###Bugs
 Known Bugs:
-* Balls get stuck to canvas at the start of the game.
+* ~~Balls get stuck to canvas at the start of the game.~~
     (Fixed)
-* Balls getting stuck to each other at the start of the game.
+* ~~Balls getting stuck to each other at the start of the game.~~
     (Fixed)
 * Still able to move character after game over. 
     (Only happens if you die while a arrow key is pressed.)
