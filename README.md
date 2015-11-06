@@ -8,19 +8,17 @@ The goal of the game is to survive and dodge the balls for as long as possible
 
 ## How to play
 The user plays the game by using the arrow keys on the keyboard.
-Ever arrow key moves into the direction it is suppoused to.
+Ever arrow key moves into the direction it is supposed to.
 
 ## Features
 Balls will spawn at certain times at certain positions of the canvas.
 
 None player ball collision is made done in a way that the player can not 
-prepare for easyly.
+prepare for easily.
 
 Timer as score system.
 
-At certain times radiuses of balls change.
+At certain times radius's of balls change.
 
 
 ## How to make the game better
-
-
