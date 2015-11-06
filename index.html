@@ -31,6 +31,7 @@
           // up top. creates the canvas with given dimensions
           // declares script type
           
+          // Declaring global variables
           var startTime;
           var endTime;
           var seconds;
@@ -100,6 +101,7 @@
                   // fills the colour 
                   ctx.fill();   
                   
+                  // Calling collision functions for ball 2
                   collideWithBall2();              
                   collideWithBall21();              
                   collideWithBall12();
@@ -136,7 +138,7 @@
                   ctx.arc(ball3.position.x, ball3.position.y, ball3.radius, 0, 2 * Math.PI);
                   // fills the colour 
                   ctx.fill();       
-                  
+                  //Calling colision functions for ball 3
                   collideWithBall13();              
                   collideWithBall23();              
                   collideWithBall31();              
@@ -176,7 +178,7 @@
                   // fills the colour 
                   ctx.fill();       
                   
-	           
+                  //Calling colision functions for ball 4
                   collideWithBall14();
                   collideWithBall24();              
                   collideWithBall34();                                     
@@ -218,11 +220,11 @@
                   // fills the colour 
                   ctx.fill();       
                   
+                  //Calling colision functions for ball 5
 	              collideWithBall15();              
                   collideWithBall35();
                   collideWithBall45();              
                   collideWithBall25(); 
-                  
                   collideWithBall51();              
                   collideWithBall52();              
                   collideWithBall53();              
@@ -250,34 +252,41 @@
               // spawns the ball in the middle of the canvas
               position:{ x: canvas.width / 2
               , y: canvas.height / 2
-              }, r: 15
-              
+              }
+              // Declares Radius
+              , r: 15              
           };
             
           // Creates a draw circle function
           function drawCircle() {
+              // Declares colour
               ctx.fillStyle = "rgb(255, 255, 0)";
               ctx.beginPath();
               ctx.arc(ballm.position.x, ballm.position.y, ballm.r, 0, 2 * Math.PI);
               ctx.fill();
+              // calls collision function
               collideWithBall();
-              
+              // calls displayt function
               displayt();   
           }       
           
+          // Creating collision with user ball function
           function collideWithBall() {
-			    
-             
+
+              // Distance calculation for x axis
               var dx = (ball.position.x ) - (ballm.position.x );
+              // Distance calculation for y axis
               var dy = (ball.position.y ) - (ballm.position.y );
+              // Distance calculation
               var distance = Math.sqrt(dx * dx + dy * dy);
+              // Creating if (if distance between 2 balls is less then 0 execute )
               if (distance < ball.radius + ballm.r) {                 
                
+                  // Calls game over function
                   gameOver();
                   
               } 		
           }
-             
           function collideWithBall2() {
 			    
               var dx = (ball2.position.x ) - (ballm.position.x );
@@ -289,7 +298,6 @@
                   
               } 		
           }
-          
           function collideWithBall3() {
 			    
               var dx = (ball3.position.x ) - (ballm.position.x );
@@ -301,7 +309,6 @@
                   
               } 		
           }
-          
           function collideWithBall4() {
 			    
               var dx = (ball4.position.x ) - (ballm.position.x );
@@ -313,7 +320,6 @@
                   
               } 		
           }
-          
           function collideWithBall5() {
 			    
               var dx = (ball5.position.x ) - (ballm.position.x );
@@ -326,7 +332,9 @@
               } 		
           }
           
-          // Balls colliding
+          // These are functions what handle the collision 
+          // between all the none user balls
+          // Code explained in collideWithBall()
           function collideWithBall12() {
 			             
               var dx = (ball.position.x ) - (ball2.position.x );
@@ -375,8 +383,7 @@
                   
                       ball.acceleration.y = -ball.acceleration.y;       
               }	
-          }
-          
+          }         
           function collideWithBall21() {
   
               var dx = (ball.position.x ) - (ball2.position.x );
@@ -425,7 +432,6 @@
                   ball2.acceleration.y = -ball2.acceleration.y;       
               }	
           }
-          
           function collideWithBall31() {
 			    
              
@@ -474,7 +480,6 @@
                   ball3.acceleration.y = +ball3.acceleration.y;       
               }	
           }
-          
           function collideWithBall41() {
   
               var dx = (ball.position.x ) - (ball4.position.x );
@@ -523,7 +528,6 @@
                   ball4.acceleration.y = +ball4.acceleration.y;       
               }	
           }
-          
           function collideWithBall51() {
   
               var dx = (ball.position.x ) - (ball5.position.x );
@@ -573,13 +577,19 @@
               }	
           }
           
+          // Function to check if the game has started
+          // if the game has started this function also makes sure
+          // that the variable startTime does not get overwritten
           function checkStart(){
+              // i is a global variable
+              // 
               if(i==0){
               startTime = new Date();
                   i++;
               }
           }
           
+          //to be commented
           function displayt() {
     
             
@@ -613,6 +623,7 @@
               
           }
           
+          //to be commented
           function startBallTwo(){
           
               if( seconds >= 10 ||  minutes > 0){
@@ -638,6 +649,12 @@
               }
           }
           
+          //to be commented
+          function increaseradius(){
+              if(seconds>5){
+              ball.radius =5;
+              }
+          }
           function startMessage(){
               ctx.font = "20px Green";
               ctx.fillText( "Dodge the ball(s) if you can!", canvas.width / 2.9 , 20);
@@ -647,7 +664,7 @@
               
               // clears  the screan/canvas i.e. where the ball was previously does not show up.
               ctx.clearRect(0, 0, canvas.width, canvas.height);
-              
+              // calls 
               checkStart();
               
               //calls the draw circle function
@@ -656,6 +673,7 @@
               // calls the function in the ball object
               ball.drawBall();
              
+              increaseradius();
               startBallTwo();
               startBall3();
               startBall4();
@@ -668,17 +686,20 @@
               window.requestAnimationFrame(repeatme);  
           }
           
+          // Creates shutdown function
           function shutdown(){
-                
+                // if keycode == 12 (enter) if will execute
                 if (event.keyCode == 13 && ballm.position.y > ballm.r){
+                    // resets global variable to 0
                     i=0;
+                    // reloads the animation page
                     location.reload(); 
                 }
           }
           
           
           
-          
+          //to be commented
           function gameOver(){
               ctx.clearRect(0, 0, canvas.width, canvas.height);      
               ctx.fillStyle = "red";  
@@ -691,22 +712,22 @@
           
           // Add an event listener to the keypress event.          
           window.addEventListener("keydown", function(event) {
-                 
-              
-              
-              
+              // clear the canvas
               ctx.clearRect(0, 0, canvas.width, canvas.height);
               
               // Right
               if (event.keyCode == 39 && ballm.position.x < canvas.width - ballm.r)
+                  // updates location by int given
                   ballm.position.x += Math.min(15, canvas.width - ballm.position.x - ballm.r);
 
               // Left
               else if (event.keyCode == 37 && ballm.position.x > ballm.r)
+                  // updates location by int given
                   ballm.position.x -= 15;
         
               // down
               else if (event.keyCode == 40 && ballm.position.y < canvas.height - ballm.r)
+                  // updates location by int given
                   ballm.position.y += 15;
         
               // For up movement
@@ -714,16 +735,16 @@
                   // updates location by int given
                   ballm.position.y -= 15;
         
+              // calls draw circle function
               drawCircle();
 
               
           });
    
-            
           // Get the animation going.
           window.requestAnimationFrame(repeatme);
+          
+          // closing tags
     </script>
-
-  </body>
-
+  </body>    
 </html>
