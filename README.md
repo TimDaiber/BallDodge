@@ -21,6 +21,7 @@ Ever arrow key moves into the direction it is supposed to.
 * Changing the acceleration of the balls at a certain time (Speed)
 * Changing the color of the balls at certain time
 * Making a ball invisible for a certain time (0.5 seconds) 
+* Addidng a function that will only allow a player to stay in one spot for a certain time (i.e. 5 seconds)
 
 The code could be cleaned up by using an array of ball objects.
 This would also enable spawning an unlimited number of balls.
