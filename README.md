@@ -21,10 +21,10 @@ At certain times radius's of balls change.
 
 
 ## How to make the game better
->Certain features could be added like: 
->Changing the acceleration of the balls at a certain time (Speed)
->Changing the color of the balls at certain time
->Making a ball invisible for a certain time (0.5 seconds) 
+*Certain features could be added like: 
+*Changing the acceleration of the balls at a certain time (Speed)
+*Changing the color of the balls at certain time
+*Making a ball invisible for a certain time (0.5 seconds) 
 
 The code could be cleaned up by using an array of ball objects.
 This would also enable spawning an unlimited number of balls.
