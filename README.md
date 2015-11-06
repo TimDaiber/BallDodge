@@ -3,6 +3,9 @@ DodgeBall is a game I have written using html,css and javascript.
 The basic concept of the game is that the user moves his ball around and
 tries to dodge the balls on the screen.
 
+## Requirements
+An up to date browser like chrome.
+
 ## Goal of the Game
 The goal of the game is to survive and dodge the balls for as long as possible
 
