@@ -79,8 +79,6 @@
               }
               
           }
-          
-          // Created a second ball object
           var ball2 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
               position: {x: 580, y: 380}
@@ -118,7 +116,6 @@
                       ball2.acceleration.y = -ball2.acceleration.y;
               }
           }
-        
           var ball3 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
               position: {x: 20 , y: 380}
@@ -157,7 +154,6 @@
                       ball3.acceleration.y = -ball3.acceleration.y;
               }
           }
-          
           var ball4 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
               position: {x: 580, y: 20}
@@ -199,7 +195,6 @@
                       ball4.acceleration.y = -ball4.acceleration.y;
               }
           }
-          
           var ball5 = {
               // determines the position where the ball will apear math.random gives a random position on the x ace
               position: {x: canvas.width / 2 , y: canvas.height/2}
@@ -589,10 +584,9 @@
               }
           }
           
-          //to be commented
+          //function that calculates time passed between 2 date variables;
           function displayt() {
-    
-            
+
               // later record end time
               var endTime = new Date();
 
@@ -611,19 +605,20 @@
               // get minutes
               minutes = Math.round(timeDiff % 60);
               
-              //while(seconds>15){
-                  
-              //}
-              
-              ctx.font = "20px Georgia";
+              //displays the time elapsed
               ctx.fillText( minutes+":"+seconds, 560, 390);
-              if(seconds<5){
+              
+              // Creates time parameter to call function 
+              // function is only active in the first 5 seconds of the game
+              if(seconds<=5&& minutes<=0){
                   startMessage();
               }
               
           }
           
-          //to be commented
+          // Function that checks if given time has elapsed
+          // If the time has elapsed/ reached a certain point 
+          // Spawn another ball (up to 5)
           function startBallTwo(){
           
               if( seconds >= 10 ||  minutes > 0){
@@ -649,16 +644,40 @@
               }
           }
           
-          //to be commented
-          function increaseradius(){
-              if(seconds>5){
-              ball.radius =5;
+          // function that increases  ball sizes to 20
+          // or shrinks them to 10
+          // when 40 seconds have elapse
+          function increaseradiusOne(){
+              if(seconds>40||minutes>0){
+                   
+                  ball.radius = 20;
+                  ball2.radius = 10;
               }
           }
+          // function that increases  ball sizes to 20
+          // or shrinks them to 10
+          // when 50 seconds have elapse
+          function increaseradiusTwo(){
+              if(seconds>50|| minutes>0){
+                  
+                  ball3.radius = 20;
+                  ball4.radius = 10;
+                  ball5.radius = 20;
+              }
+          }
+          // function that increases the players ball size to 20
+          // when one minute has elapsed
+          function increaseradiusBallm(){
+              if(minutes>0){
+                  ballm.r = 20;  
+              }
+          }
+          
+          // Creates a function that will hold a message
           function startMessage(){
-              ctx.font = "20px Green";
               ctx.fillText( "Dodge the ball(s) if you can!", canvas.width / 2.9 , 20);
           }
+          
           // A function to repeat every time the animation loops.
           function repeatme() {
               
@@ -673,7 +692,9 @@
               // calls the function in the ball object
               ball.drawBall();
              
-              increaseradius();
+              increaseradiusOne();
+              increaseradiusTwo();
+              increaseradiusBallm();
               startBallTwo();
               startBall3();
               startBall4();
@@ -688,8 +709,8 @@
           
           // Creates shutdown function
           function shutdown(){
-                // if keycode == 12 (enter) if will execute
-                if (event.keyCode == 13 && ballm.position.y > ballm.r){
+                // if keycode == 13 (enter) if will execute
+                if (event.keyCode == 13 ){
                     // resets global variable to 0
                     i=0;
                     // reloads the animation page
@@ -699,13 +720,15 @@
           
           
           
-          //to be commented
+          // Function that Displays a messgae to the user that the game is over
+          // and gives user instructions on how to continue.
           function gameOver(){
               ctx.clearRect(0, 0, canvas.width, canvas.height);      
               ctx.fillStyle = "red";  
               ctx.font = "20px Arial";   
               ctx.fillText('"Game Over"  ', canvas.width / 2.55, canvas.height/2 );   
               ctx.fillText('  Press enter to restart', canvas.width / 3.25, canvas.height/2 + 20);   
+              //calls shutdown function
               shutdown();
    
           }
