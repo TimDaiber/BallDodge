@@ -13,6 +13,7 @@ Ever arrow key moves into the direction it is supposed to.
 ## Features
 * Balls will spawn at certain times at certain positions of the canvas.
 * None player ball collision is made done in a way that the player can not prepare for easily.
+* 
  It is not a bug unless the two balls get stuck in each other. It is wanted behaviour.
 * Timer as score system.
 * At certain times radius's of balls change.
